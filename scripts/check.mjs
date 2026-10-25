@@ -1,6 +1,6 @@
 // Project health check: route modules exist, icons exist in the sprite, engines return data.
 // Run with `npm run check` (Node 18+). No dependencies.
-import { readFile, readdir, access } from 'node:fs/promises';
+import { readFile, writeFile, readdir, access } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -153,6 +153,7 @@ console.log('Deploy config');
 // vercel.json carries the pages' security policy (inline-script hashes); it must match the pages as they are now.
 const { vercelJson } = await import(pathToFileURL(join(root, '..', 'scripts', 'vercel-config.mjs')).href);
 try {
+  if (process.env.VERCEL) await writeFile(join(root, '..', 'vercel.json'), await vercelJson());
   const have = (await readFile(join(root, '..', 'vercel.json'), 'utf8')).replace(/\r\n/g, '\n');
   have === await vercelJson() ? ok('vercel.json matches the pages') : fail('vercel.json is out of date: run npm run vercel:config');
 } catch (e) { fail(`vercel.json: ${e.message}`); }

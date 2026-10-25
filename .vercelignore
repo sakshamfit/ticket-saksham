@@ -1,7 +1,5 @@
-# Vercel serves public/ and serverless functions in api/. Never upload applicant data (data/), keys (.env), tools or scripts.
-/*
-!/public
-!/api
-!/security.mjs
-!/package.json
-!/vercel.json
+# Never upload local applicant data (data/), keys (.env) or local CLI state.
+/data
+.env*
+.vercel
+.sites-runtime

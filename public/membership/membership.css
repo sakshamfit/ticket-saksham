@@ -1,0 +1,278 @@
+/* SAKSHBOOKS Membership — built on the Careers design system (careers/careers.css: Inter, the brand blue and navy,
+   the header, buttons, fields, cards and footer), with a coral / crimson accent that marks the membership offer.
+   Membership-only pieces use the prefix ms-. */
+
+:root {
+  --coral: #f0525a; --crimson: #c8102e; --crimson-600: #a50d27;
+  --coral-50: #fff3f3; --coral-100: #ffe3e4; --coral-line: #ffc9cc;
+  --coral-on-dark: #ff9ea2;   /* coral for text on navy (8.4:1) */
+}
+html:not(.js) .ms-js { display: none !important; }
+.is-crimson { color: var(--crimson); }
+.cr-eyebrow.is-crimson { color: var(--crimson); }
+.cr-field.is-full { grid-column: 1 / -1; }
+.cr-input[aria-invalid="true"], .cr-select[aria-invalid="true"] { border-color: #e0364a; box-shadow: 0 0 0 4px rgba(224, 54, 74, .08); }
+.cr-btn[aria-disabled="true"] { opacity: .6; cursor: progress; }
+.ms-upper { text-transform: uppercase; }
+.ms-upper::placeholder { text-transform: none; }
+
+/* header: the four section links fit down to tablet width; below 900px the Careers menu button takes over */
+@media (min-width: 900px) and (max-width: 1139px) {
+  .cr-header-simple .cr-nav { display: flex; }
+  .cr-header-simple .cr-menu-btn { display: none; }
+  .cr-header-simple .cr-header-bar { padding-right: 12px; }
+}
+
+/* ---------------------------------------------------------------- landing */
+.ms-hero { position: relative; overflow: hidden; padding: calc(var(--header-h) + clamp(48px, 6vw, 88px)) 0 clamp(56px, 7vw, 104px);
+  background: radial-gradient(60% 55% at 92% 8%, #fff0f0 0, transparent 62%), linear-gradient(180deg, #f3f7fd, #fff 88%); }
+.ms-hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+.ms-hero-title { margin-top: 18px; font-size: clamp(48px, 6.4vw, 96px); line-height: .95; font-weight: 800; letter-spacing: -.045em; color: var(--ink); }
+.ms-swoosh { display: block; width: min(300px, 60%); height: auto; margin: 10px 0 0 4%; overflow: visible; }
+.ms-swoosh path { fill: none; stroke: var(--coral); stroke-width: 4; stroke-linecap: round; }
+.ms-hero-copy .cr-lead { margin-top: 18px; max-width: 34em; }
+.ms-hero-copy .cr-cta-row { margin-top: 30px; }
+.ms-hero-points { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.ms-hero-points li { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-size: 14px; font-weight: 500; color: var(--ink-2); }
+.ms-hero-points svg.i { width: 17px; height: 17px; color: var(--crimson); }
+/* the airliner photo with the price card over its lower edge */
+.ms-hero-media { position: relative; display: grid; justify-items: end; }
+.ms-hero-photo { position: relative; width: min(100%, 470px); aspect-ratio: 531 / 600; border-radius: 28px; overflow: hidden; box-shadow: var(--shadow-lg); }
+.ms-hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.ms-price { position: relative; justify-self: start; width: min(100%, 400px); margin-top: -170px; padding: 26px 26px 18px; border-radius: 24px; overflow: hidden; isolation: isolate; color: #c9d5ea;
+  background: radial-gradient(120% 90% at 100% 0%, rgba(240, 82, 90, .3) 0, transparent 55%), linear-gradient(160deg, var(--navy-2), var(--navy)); box-shadow: var(--shadow-lg); }
+.ms-price::after { content: ''; position: absolute; z-index: -1; right: -70px; top: -90px; width: 240px; height: 240px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .12); box-shadow: 0 0 0 36px rgba(255, 255, 255, .03); }
+.ms-price-k { font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--coral-on-dark); }
+.ms-price-fig { margin-top: 10px; font-size: clamp(46px, 4.4vw, 60px); font-weight: 800; letter-spacing: -.04em; line-height: 1; color: #fff; font-variant-numeric: tabular-nums; }
+.ms-price-fig span { font-size: .34em; font-weight: 600; letter-spacing: 0; color: #c9d5ea; }
+.ms-price-line { margin-top: 10px; font-size: 14px; line-height: 1.5; color: #dbe5f5; }
+.ms-price-rows { margin-top: 16px; border-top: 1px solid rgba(255, 255, 255, .16); }
+.ms-price-rows > div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 11px 0; border-bottom: 1px solid rgba(255, 255, 255, .1); font-size: 14px; }
+.ms-price-rows > div:last-child { border-bottom: 0; }
+.ms-price-rows dt { color: #bccbe4; }
+.ms-price-rows dd { color: #fff; font-weight: 700; font-size: 16px; white-space: nowrap; }
+.ms-price-rows dd.is-coral { color: var(--coral-on-dark); font-size: 19px; }
+
+/* ---------------------------------------------------------------- shared section parts */
+.ms-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: 20px 56px; align-items: end; }
+.ms-head .cr-h1, .ms-benefits-sec .cr-h1 { margin-top: 16px; }
+.ms-note { margin-top: 20px; max-width: 90ch; font-size: 13px; line-height: 1.55; color: var(--muted); }
+.ms-tag { display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--line); background: #fff; font-size: 12.5px; font-weight: 600; color: var(--ink-2); }
+.ms-tag.is-ok { background: var(--green-50); border-color: #bfe8d5; color: var(--green); }
+.ms-tag.is-test { background: var(--coral-50); border-color: var(--coral-line); color: var(--crimson); }
+
+/* ---------------------------------------------------------------- plans */
+.ms-plans-sec { background: linear-gradient(180deg, #fff, #f7f9fc); }
+@media (min-width: 1024px) { .ms-plans-sec .ms-head { grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); } }   /* room for "Extraordinary journeys." on one line */
+.ms-plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: clamp(36px, 4vw, 56px); }
+.ms-plan { position: relative; display: flex; flex-direction: column; padding: clamp(24px, 2.6vw, 34px); border-radius: 24px; background: #fff; border: 1px solid var(--line-2); box-shadow: var(--shadow-sm);
+  transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out); }
+.ms-plan:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.ms-plan-name { font-size: 12.5px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--text); }
+/* the tier name (Explorer, Voyager, Summit) and its one-line promise, above the price (client v3, 14 Oct 2026) */
+.ms-plan-tier { margin-top: 18px; font-size: clamp(30px, 2.8vw, 38px); font-weight: 800; letter-spacing: -.035em; line-height: 1.05; color: var(--ink); }
+.ms-plan-tag { margin-top: 6px; font-size: 15px; line-height: 1.45; color: var(--text); }
+.ms-plan-price { margin-top: 22px; font-size: clamp(48px, 4.6vw, 64px); font-weight: 800; letter-spacing: -.045em; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+.ms-plan-sub { margin-top: 10px; font-size: 14px; line-height: 1.5; color: var(--text); }
+.ms-plan-sub b { color: var(--crimson); font-weight: 600; }
+.ms-plan-list { flex: 1; align-content: start; margin: 22px 0 26px; padding-top: 20px; border-top: 1px solid var(--line-2); }
+.ms-plan-list b { color: var(--ink); font-weight: 600; }
+.ms-plan-btn { width: 100%; }
+/* Voyager, the most popular plan: a light brand-blue card between the white Explorer and the navy Summit */
+.ms-plan.is-popular { border-color: var(--blue-line); background: linear-gradient(180deg, var(--blue-50), #fff 72%); }
+.ms-plan.is-popular .ms-plan-name { color: var(--blue); }
+.ms-plan.is-popular .ms-plan-list { border-top-color: var(--blue-100); }
+.ms-plan.is-best { overflow: hidden; border-color: transparent; color: #c9d5ea; box-shadow: var(--shadow-lg);
+  background: radial-gradient(120% 70% at 100% 0%, #16407a 0, transparent 60%), linear-gradient(160deg, var(--navy-2), var(--navy)); }
+.ms-plan.is-best::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: linear-gradient(90deg, var(--crimson), var(--coral)); }
+.ms-plan.is-best .ms-plan-name { color: #a9c1ea; }
+.ms-plan.is-best .ms-plan-tier, .ms-plan.is-best .ms-plan-price, .ms-plan.is-best .ms-plan-list b { color: #fff; }
+.ms-plan.is-best .ms-plan-tag, .ms-plan.is-best .ms-plan-sub { color: #c9d5ea; }
+.ms-plan.is-best .ms-plan-sub b { color: var(--coral-on-dark); }
+.ms-plan.is-best .ms-plan-list { border-top-color: rgba(255, 255, 255, .16); }
+.ms-plan.is-best .cr-plus-list li { color: #e1e9f6; }
+.ms-plan.is-best .cr-plus-list li::before { color: var(--coral-on-dark); }
+.ms-ribbon { position: absolute; top: 24px; right: 24px; padding: 6px 12px; border-radius: 999px; background: var(--crimson); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .04em;
+  box-shadow: 0 10px 22px -10px rgba(200, 16, 46, .7); }
+.ms-ribbon.is-outline { background: #fff; color: var(--blue); border: 1px solid var(--blue-line); box-shadow: none; }
+.ms-btn-light { background: #fff; color: var(--ink); }
+.ms-btn-light:hover { background: #eef3ff; }
+
+/* ---------------------------------------------------------------- benefits */
+.ms-benefits { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: clamp(32px, 4vw, 48px); }
+.ms-benefit { padding: 28px 24px; border-radius: 22px; }
+.ms-benefit-num { font-size: clamp(44px, 4vw, 56px); font-weight: 800; letter-spacing: -.04em; line-height: 1; }
+.ms-benefit-title { margin-top: 14px; font-size: 18px; font-weight: 700; letter-spacing: -.01em; color: var(--ink); }
+.ms-benefit-title + p { margin-top: 8px; font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
+.ms-benefit.is-coral { background: var(--coral-50); }
+.ms-benefit.is-coral .ms-benefit-num { color: var(--crimson); }
+.ms-benefit.is-blue { background: var(--blue-50); }
+.ms-benefit.is-blue .ms-benefit-num { color: var(--blue); }
+.ms-benefit.is-mint { background: var(--mint); }
+.ms-benefit.is-mint .ms-benefit-num { color: #2c7a5e; }
+.ms-benefit.is-lav { background: var(--lav); }
+.ms-benefit.is-lav .ms-benefit-num { color: var(--lav-ink); }
+
+/* ---------------------------------------------------------------- traveller status */
+.ms-status-sec { background: linear-gradient(180deg, #fff, #f8fafd 60%, #fff); }
+.ms-tiers { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-top: clamp(32px, 4vw, 48px); }
+.ms-tier { position: relative; overflow: hidden; padding: 24px 20px; border-radius: 20px; background: #fff; border: 1px solid var(--line-2); box-shadow: var(--shadow-sm); }
+.ms-tier::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--tier, var(--blue)); }
+.ms-tier-n { font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.ms-tier h3 { margin-top: 10px; font-size: 22px; font-weight: 700; letter-spacing: -.02em; color: var(--ink); }
+.ms-tier p { margin-top: 6px; font-size: 14px; line-height: 1.5; color: var(--text); }
+.ms-tier.is-member { --tier: var(--blue); }
+.ms-tier.is-silver { --tier: #a7b0bf; }
+.ms-tier.is-gold { --tier: #d4a017; }
+.ms-tier.is-platinum { --tier: #7d8ca8; }
+.ms-tier.is-black { --tier: linear-gradient(90deg, var(--crimson), var(--coral)); border-color: transparent; background: linear-gradient(160deg, #111827, var(--navy)); }
+.ms-tier.is-black .ms-tier-n { color: var(--coral-on-dark); }
+.ms-tier.is-black h3 { color: #fff; }
+.ms-tier.is-black p { color: #c9d5ea; }
+.ms-better { margin-top: clamp(48px, 6vw, 80px); max-width: 52em; }
+.ms-better .cr-lead { margin-top: 12px; }
+.ms-road { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+.ms-road::before { content: ''; position: absolute; left: 24px; right: 24px; top: 23px; height: 2px; background: linear-gradient(90deg, var(--coral-line), var(--blue-line)); }
+.ms-road li { position: relative; padding: 48px 22px 24px; border-radius: 20px; background: #fff; border: 1px solid var(--line-2); box-shadow: var(--shadow-sm); }
+.ms-road li::before { content: ''; position: absolute; left: 22px; top: 17px; width: 14px; height: 14px; border-radius: 50%; background: var(--crimson); box-shadow: 0 0 0 5px var(--coral-100); }
+.ms-road-when { font-size: 18px; font-weight: 700; letter-spacing: -.01em; color: var(--crimson); }
+.ms-road-when + p { margin-top: 8px; font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
+
+/* ---------------------------------------------------------------- join: issue a Member ID */
+.ms-join-sec { position: relative; overflow: hidden; background: linear-gradient(180deg, #f3f7fd, #fdfdfd 40%); }
+.ms-join-head { position: relative; z-index: 1; }
+.ms-join-head .cr-h1 { margin-top: 14px; }
+.ms-join-head .cr-lead { margin-top: 16px; }
+.ms-join-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 24px; margin-top: clamp(32px, 4vw, 48px); align-items: start; }
+.ms-panel, .ms-cardcol { min-width: 0; padding: clamp(20px, 2.6vw, 34px); border-radius: 22px; background: #fff; border: 1px solid var(--line-2); box-shadow: var(--shadow); }
+/* side by side, the sample card stays in view while the form is filled in (not once the result is shown) */
+@media (min-width: 1024px) { .ms-cardcol:not(:has(.ms-result:not([hidden]))) { position: sticky; top: calc(var(--header-h) + 40px); } }
+.ms-plan-field { min-width: 0; margin: 0; padding: 0; border: 0; }
+.ms-legend { margin-bottom: 10px; padding: 0; font-size: 14px; font-weight: 600; color: var(--ink-2); }
+.ms-opts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.ms-opt { position: relative; display: grid; gap: 2px; padding: 14px 16px; border-radius: 14px; border: 1.5px solid var(--line); background: #fff; cursor: pointer;
+  transition: border-color var(--t-micro), background-color var(--t-micro), box-shadow var(--t-micro); }
+.ms-opt:hover { border-color: var(--blue-line); }
+.ms-opt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.ms-opt-name { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--text); }
+.ms-opt-price { font-size: 24px; font-weight: 800; letter-spacing: -.03em; color: var(--ink); }
+.ms-opt-per { font-size: 12.5px; color: var(--muted); }
+.ms-opt:has(input:checked) { border-color: var(--blue); background: #f5f8ff; box-shadow: 0 12px 26px -18px rgba(11, 92, 255, .6); }
+.ms-opt:has(input:checked)::after { content: ''; position: absolute; top: 12px; right: 12px; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 12px no-repeat; }
+.ms-opt:has(input:focus-visible) { outline: 3px solid rgba(11, 92, 255, .45); outline-offset: 3px; }
+.ms-fields { margin-top: 20px; }
+.ms-sum { margin-top: 22px; padding: 6px 18px 14px; border-radius: 16px; background: var(--bg-soft); border: 1px solid var(--line-2); }
+.ms-sum-row { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ms-sum-row.is-total { padding-top: 14px; border-bottom: 0; font-weight: 700; color: var(--ink); }
+.ms-sum-row.is-total dt { align-self: center; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; }
+.ms-sum-row.is-total dd { font-size: 24px; letter-spacing: -.02em; }
+.ms-sum-note { margin-top: 4px; font-size: 12.5px; line-height: 1.5; color: var(--muted); }
+.ms-form-foot { display: grid; gap: 12px; margin-top: 18px; }
+.ms-alert:empty { display: none; }
+.ms-actions { justify-content: flex-end; }
+.ms-actions .cr-btn-primary { min-width: 230px; }
+/* the membership card */
+.ms-card-fig { margin: 0; }
+.ms-card { position: relative; aspect-ratio: 560 / 353; overflow: hidden; isolation: isolate; border-radius: 20px; color: #fff; container-type: inline-size; box-shadow: 0 28px 50px -24px rgba(11, 22, 51, .55); }
+.ms-card--1 { background: radial-gradient(90% 80% at 100% 0%, rgba(240, 82, 90, .35) 0, transparent 55%), linear-gradient(135deg, #141d36 0%, #26324f 55%, #36446a 100%); }
+.ms-card--2 { background: radial-gradient(90% 80% at 100% 0%, rgba(240, 82, 90, .38) 0, transparent 55%), linear-gradient(135deg, #062f91 0%, #0a46c4 55%, #1652d8 100%); }
+.ms-card--3 { background: radial-gradient(90% 80% at 100% 0%, rgba(240, 82, 90, .45) 0, transparent 55%), linear-gradient(135deg, #061430 0%, #0d2950 50%, #123a72 100%); }
+.ms-card-art { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; }
+.ms-card-art .w1 { fill: rgba(255, 255, 255, .07); }
+.ms-card-art .w2 { fill: rgba(255, 255, 255, .05); }
+.ms-card-art .s1 { fill: none; stroke: rgba(255, 158, 162, .6); stroke-width: 1.2; }
+.ms-card-art .s2 { fill: none; stroke: rgba(255, 255, 255, .22); stroke-width: 1; }
+.ms-card-body { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 7% 7.5%; }
+.ms-card-top, .ms-card-bottom { display: flex; justify-content: space-between; gap: 12px; }
+.ms-card-top { align-items: center; }
+.ms-card-bottom { align-items: flex-end; }
+.ms-card-logo { width: auto; height: clamp(18px, 6.4cqw, 32px); filter: brightness(0) invert(1); }
+.ms-card-pill { padding: .35em .9em; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .55); font-size: clamp(10.5px, 2.3cqw, 12.5px); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+@container (max-width: 299px) { .ms-card-pill-x { display: none; } }
+.ms-card-label { font-size: clamp(10.5px, 2.2cqw, 12px); font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #fff; text-shadow: 0 1px 8px rgba(0, 0, 0, .3); }
+.ms-card-id { margin-top: .25em; font-size: clamp(18px, 5.8cqw, 31px); font-weight: 700; letter-spacing: .04em; font-variant-numeric: tabular-nums; white-space: nowrap; text-shadow: 0 1px 12px rgba(0, 0, 0, .3); }
+.ms-card-val { margin-top: .2em; font-size: clamp(13px, 3.4cqw, 18px); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; text-shadow: 0 1px 8px rgba(0, 0, 0, .3); }
+.ms-card-valid { text-align: right; }
+.ms-sample { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; margin-top: 16px; font-size: 13.5px; line-height: 1.5; color: var(--text); }
+.ms-result { margin-top: 18px; }
+/* Join's two modes (data-checkout on #join): "interest" until a payment gateway is connected, then "pay" */
+.ms-join-sec[data-checkout="interest"] [data-pay-only], .ms-join-sec:not([data-checkout="interest"]) [data-interest-only] { display: none !important; }
+.ms-thanks-title { margin-top: 14px; font-size: 22px; font-weight: 700; letter-spacing: -.02em; color: var(--ink); outline: none; }
+.ms-thanks > p { margin-top: 10px; font-size: 15px; line-height: 1.55; color: var(--ink-2); }
+.ms-thanks .ms-notice a { font-weight: 600; color: var(--blue); }
+.ms-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.ms-details { margin-top: 12px; }
+.ms-details > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line-2); font-size: 14px; }
+.ms-details dt { color: var(--text); }
+.ms-details dd { color: var(--ink); overflow-wrap: anywhere; }
+.ms-details dd.is-strong { font-weight: 700; }
+.ms-details dd.is-mono { font-variant-numeric: tabular-nums; letter-spacing: .04em; }
+.ms-notice { margin-top: 14px; padding: 12px 14px; border-radius: 12px; background: var(--blue-50); font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+.ms-result .cr-cta-row { margin-top: 16px; }
+
+/* ---------------------------------------------------------------- test-mode checkout */
+.ms-dialog { width: min(560px, calc(100vw - 32px)); }
+.ms-pay-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.ms-pay-head .cr-h2 { margin-top: 8px; }
+.ms-pay > .cr-field, .ms-pay-fields .cr-field { grid-column: auto; }
+.ms-methods { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.ms-method { position: relative; display: grid; place-items: center; min-height: 48px; padding: 0 10px; border-radius: 12px; border: 1.5px solid var(--line); font-size: 14px; font-weight: 600; color: var(--ink-2); text-align: center; cursor: pointer;
+  transition: border-color var(--t-micro), background-color var(--t-micro), color var(--t-micro); }
+.ms-method input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.ms-method:has(input:checked) { border-color: var(--blue); background: #f5f8ff; color: var(--blue); }
+.ms-method:has(input:focus-visible) { outline: 3px solid rgba(11, 92, 255, .45); outline-offset: 2px; }
+.ms-pay-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.ms-pay-fields .ms-pay-wide { grid-column: 1 / -1; }
+.ms-pay-actions { justify-content: flex-end; }
+.ms-pay-note { font-size: 12.5px; line-height: 1.55; color: var(--muted); }
+
+/* ---------------------------------------------------------------- smaller screens */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  /* keep the price card offset from the photo, as on wide screens */
+  .ms-hero-photo { width: 86%; }
+  .ms-price { width: min(100%, 350px); margin-top: -150px; }
+}
+@media (max-width: 1199px) {
+  .ms-tiers { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ms-tier.is-black { grid-column: span 2; }
+  .ms-benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ms-road { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ms-road::before { display: none; }
+}
+@media (max-width: 1023px) {
+  .ms-hero-grid, .ms-head, .ms-join-grid { grid-template-columns: minmax(0, 1fr); }
+  /* the photo and the price card side by side, so the photo never shows larger than its 531px source */
+  .ms-hero-media { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; justify-items: stretch; }
+  .ms-hero-photo { width: 100%; min-height: 300px; aspect-ratio: auto; }
+  .ms-hero-photo img { position: absolute; inset: 0; object-position: 50% 35%; }
+  .ms-price { justify-self: stretch; width: auto; margin: 0; }
+  .ms-plans { grid-template-columns: minmax(0, 1fr); }
+  .ms-plan-sub { min-height: 0; }
+}
+@media (max-width: 767px) {
+  .ms-hero { padding-top: calc(var(--header-h) + 40px); }
+  .ms-hero-title { font-size: clamp(44px, 13vw, 64px); }
+  .ms-tiers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ms-tier.is-black { grid-column: 1 / -1; }
+  .ms-benefits, .ms-road { grid-template-columns: minmax(0, 1fr); }
+  .ms-join-sec .cr-apply-art { display: none; }
+  .ms-actions .cr-btn { flex: 1 1 100%; }
+  .ms-actions .cr-btn-primary { min-width: 0; order: -1; }
+  .ms-details > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .ms-pay-head { flex-wrap: wrap; }
+}
+@media (max-width: 599px) {
+  .ms-hero-media { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .ms-hero-photo { min-height: 0; aspect-ratio: 4 / 3; border-radius: 22px; }
+  .ms-hero-photo img { object-position: 50% 30%; }
+  .ms-price { margin: -60px 10px 0; padding: 22px 20px 14px; }
+}
+@media (max-width: 419px) {
+  .ms-opts { grid-template-columns: minmax(0, 1fr); }
+  .ms-opt { grid-template-columns: auto auto minmax(0, 1fr); align-items: baseline; column-gap: 12px; padding-right: 44px; }
+  .ms-opt:has(input:checked)::after { top: 50%; margin-top: -10px; }
+  .ms-opt-per { text-align: right; }
+  .ms-dialog .cr-dialog-inner { padding: 26px 18px; }
+  .ms-method { padding: 0 6px; font-size: 13.5px; }
+}
